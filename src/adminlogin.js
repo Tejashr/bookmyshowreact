@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { Postlogin} from "./api";
-function Login() {
+import { Postalogin} from "./api";
+function Adminlogin() {
 
     let [email, setEmail] = useState("");
     let [password, setPassword] = useState("");
@@ -14,12 +14,12 @@ function Login() {
                 <div class="d-flex justify-content-center h-100">
                     <div class="card1">
                         <div class="card-header">
-                            <h3>Login</h3>
+                            <h3>Admin Login</h3>
                         </div>
                         <div class="card-body">
                             <form onSubmit={async (e) => {
                                 e.preventDefault();
-                               let logindata= await Postlogin(userData);
+                               let logindata= await Postalogin(userData);
                                console.log(logindata);
                                window.localStorage.setItem("app_token",logindata.data.token)
                                console.log(window.localStorage.app_token)
@@ -38,7 +38,7 @@ function Login() {
                             // }
                             if(token)
                             {
-                                history.push(`/usermovies/${email}`);
+                                history.push(`/addmovies`);
                             }
                             else{
                                 history.push(`/login`);
@@ -68,9 +68,7 @@ function Login() {
                             </form>
                         </div>
                         <div class="card-footer">
-                            <div class="d-flex justify-content-center links">
-                                Don't have an account?<Link to="/register">Register</Link>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -85,4 +83,4 @@ function Login() {
 
 
 
-export default Login;
+export default Adminlogin;

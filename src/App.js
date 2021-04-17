@@ -10,6 +10,13 @@ import {
 import Login from './login';
 import Register from './register';
 import Nav from './nav';
+import Adminlogin from './adminlogin';
+import Addmovies from './addmovies';
+import Movies from './movies';
+import Usermovies from './usermovies';
+import Cart from './cart';
+import Usertickets from './usertickets';
+import Adminticket from './admintickets';
 function App() {
   return (
     <>
@@ -18,7 +25,14 @@ function App() {
         <div className="container">
           <Switch>
             <Route path="/login" component={Login} exact />
+            <Route path="/adminlogin" component={Adminlogin} exact />
+            <Route path="/addmovies" component={Addmovies} exact />
             <Route path="/register" component={Register} exact />
+            <Route path="/movies" component={Movies} exact />
+            <Route path="/usermovies/:id" component={Usermovies} exact />
+            <Route path="/cart/:id" component={Cart} exact />
+            <Route path="/usertickets/:id" component={Usertickets} exact />
+            <Route path="/admintickets" component={Adminticket} exact />
           </Switch>
         </div>
       </Router>

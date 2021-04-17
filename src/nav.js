@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Nav() {
+
+    let history=useHistory();
     return (
         <>
             <nav class="navbar navbar-expand-lg navbar-light bg-danger">
@@ -11,9 +13,13 @@ function Nav() {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <Link class="nav-item nav-link active text-light" to="/">Home</Link>
-                        <Link class="nav-item nav-link text-light" to="/login">Login</Link>
+                        <Link class="nav-item nav-link active text-light" to="/adminlogin">Admin</Link>
+                        <Link class="nav-item nav-link active text-light" to="/login">Login</Link>
                         <Link class="nav-item nav-link text-light" to="/register">Register</Link>
+                        <Link class="nav-item nav-link text-light" to="/login" onClick={()=>{
+                             window.localStorage.removeItem("app_token");
+                             history.push(`/adminlogin`);
+                        }}>Logout</Link>
                     </div>
                 </div>
             </nav>
